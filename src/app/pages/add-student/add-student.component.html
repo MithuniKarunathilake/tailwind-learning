@@ -33,6 +33,10 @@
         <input type="number" class="form-control" id="contactNumber" placeholder="Contact Number" [(ngModel)]="user.contactNumber">
     </div>
     <div class="mb-3">
+        <label for="profilePicture" class="form-label">Profile Picture</label>
+        <input type="file" class="form-control" id="profilePicture">
+    </div>
+    <div class="mb-3">
         <button type="button" class="btn btn-primary" (click)="addUser()">Add</button>
     </div>
 </div>
@@ -58,6 +62,7 @@
             <th>Password</th>
             <th>Birthday</th>
             <th>Contact Number</th>
+            <th>Profile Picture</th>
             <th>Actions</th>
         </tr>
         <tr *ngFor="let user of userList; index as i">
@@ -69,7 +74,8 @@
             <td>{{user.password}}</td>
             <td>{{user.dob}}</td>
             <td>{{user.contactNumber}}</td>
-            <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="updateUser(user)"><i
+            <td><img [src]="user.profilePictureUrl" alt="Profile Picture" width="50" height="50"></td>
+            <td><button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
                         class="bi bi-pencil-square"></i></button>
                 &nbsp;
                 <button class="btn btn-danger" (click)="deleteUserById(user.id)"><i
